@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Image List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <style>
+       iframe[seamless] {
+            border: none;
+        }
+
+        .image-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            background-color: white;
+        }
+
+        .image-list li {
+            text-align: center;
+            margin: 10px;
+
+        }
+
+        .image-list img {
+            border-radius: 50%;
+            max-width: 100px;
+            height: auto;
+
+        }
+
+        .image-list p {
+            margin-top: 10px;
+            /* Add some space between image and text */
+            color: black;
+            /* Darken the text color */
+            font-style: italic;
+        }
+
+        .icon i {
+            margin-right: 5px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .left {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            color: #007bff;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .explore-plus {
+            font-size: 12px;
+            margin-top: 5px;
+            margin-bottom: -38px;
+            margin-left: -95px;
+        }
+
+        .plus {
+            color: #ffd700;
+        }
+
+        .search-box {
+            background-color: #f0f8ff;
+            /* Light blue color */
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+
+        input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            width: 240px;
+        }
+
+        .icon {
+            font-size: 20px;
+            /* Larger font size for icons */
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .icon-text {
+            font-size: 14px;
+        }
+
+        /* .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        } */
+
+        /* .icon:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown div {
+            padding: 10px;
+            cursor: pointer;
+        } */
+
+        .frame2 {
+            bottom: 20px;
+        }
+        /* Style the select element */
+.form-select {
+    width: 121px;
+    padding: -54px;
+    font-size: 13px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    text-align: center;
+    font-style: italic;
+}
+
+
+
+
+/* Style the selected option */
+.form-select option[selected] {
+  font-weight: bold;
+}
+
+/* Style the dropdown arrow */
+.form-select::after {
+  content: "\25BC"; /* Down arrow symbol */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.image-list img {
+    border-radius: 50%;
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 10px; /* Add some margin at the bottom of the image */
+    padding: 18px;
+}
+
+.image-list div {
+    text-align: center; /* Center the text */
+    margin-top: -5px;
+    color: black;
+    font-style: italic;
+    margin-bottom: -174px;
+    font-size: 13px;
+
+}
+.dropbtn {
+  /* background-color: #4CAF50; */
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    bottom: 11px;
+    right: -34px;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+ .dropdown-content a:hover {background-color: #f1f1f1;}  
+
+.dropdown:hover .dropdown-content {
+  display: block;
+} 
+
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <nav class="navbar">
+            <div class="left">
+                <a href="#" class="logo">Flipkart</a>
+                <div class="explore-plus">Explore <span class="plus">Plus</span></div>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Search for product, brand, and more">
+                <div class="dropdown">
+                    <!-- Add your search options here -->
+                </div>
+            </div>
+            <div class="icon">
+                <span class="icon-text"><i class="fa-regular fa-heart"></i> become a Seller</span>
+                <div class="dropdown">
+                    <!-- Add your options here -->
+                </div>
+            </div>
+            <div class="icon">
+                <span class="icon-text"><i class="fas fa-user"></i> Sign In</span>
+                <div class="dropdown">
+                    <!-- Add your sign in options here -->
+                </div>
+            </div>
+            <div class="icon">
+                <span class="icon-text"><i class="fas fa-shopping-cart"></i> Cart</span>
+                <div class="dropdown">
+                    <!-- Add your cart options here -->
+                </div>
+            </div>
+            <div class="icon">
+                <span class="icon-text"></i>...</span>
+                <div class="dropdown">
+                    <!-- Add your options here -->
+                </div>
+            </div>
+        </nav>
+
+    </div>
+    <div>
+        <ul class="image-list" id="grocery">
+            <!-- Images will be dynamically added here using JavaScript -->
+           
+        </ul>
+    </div>
+
+    <script>
+        let grocery = document.getElementById("grocery");
+
+        const imageList = [
+            {
+                "image": "image/grocery.webp",
+                "text": "Grocery",
+                "isDropdown":"false"
+
+            },
+            {
+                "image": "image/mobile.webp",
+                "text": "Mobile",
+                "isDropdown":"false"
+
+            },
+            {
+                "image": "image/fashion.webp",
+                "text": "Fashion",
+                "isDropdown":"true",
+                "Option":["men's footwear","women ethnic","men's shirt"]
+
+            },
+            {
+                "image": "image/electronics.webp",
+                "text": "Electornics",
+                "isDropdown":"true",
+                "Option":["all","gaming","soundbars"]
+
+            },
+            {
+                "image": "image/furniture.webp",
+                "text": "Home&Furniture",
+                "isDropdown":"true",
+                "Option":["bedsheets","tool and utility","tiles"]
+
+            },
+            {
+                "image": "image/appliances.webp",
+                "text": "Appliances",
+                "isDropdown":"false"
+
+            },
+            {
+                "image": "image/travel.webp",
+                "text": "Travel",
+                "isDropdown":"false",
+                
+            },
+            {
+                "image": "image/toy.webp",
+                "text": "Beauty,Toy&More",
+                "isDropdown":"true",
+                "Option":["food & drinks","baby care","lip makeup"]
+
+
+
+            },
+            {
+                "image": "image/twowheelers.webp",
+                "text": "Two Wheelers",
+                "isDropdown":"true",
+                "Option":["petrol vechiles","electric vechiles"]
+//                 "Option":[
+//     {"option_name":"petrol vechiles",
+//     "option_url":"https://www.facebook.com/login/"},
+
+//     {"option_name":""electric vechiles",
+//     "option_url":"https://www.facebook.com/login/"},
+    
+// ]
+            },
+        ];
+
+        imageList.forEach(item => {
+    var li = document.createElement("li");
+    if (item.isDropdown === "true") {
+        
+        
+        let options = item.Option.map(option => `<a href="https://www.facebook.com/login/">${option}</a>`).join('');
+        li.innerHTML = `
+            <img src='${item.image}' alt='${item.text}'><br>
+            <div class= "dropdown">
+                <div class="dropbtn">${item.text}</div>
+  <div class="dropdown-content">
+    ${options}
+  </div>
+ </div>
+        `;
+    } else {
+        li.innerHTML = `
+            <img src='${item.image}' alt='${item.text}'>
+            <div>${item.text}</div>
+        `;
+    }
+    grocery.appendChild(li);
+});
+</script>
+</body>
+</html>
+
