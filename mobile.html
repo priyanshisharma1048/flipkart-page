@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Page with CSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color:black;
+            font-size: xx-large;
+            margin-top: 50px;
+        }
+
+        .phone-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .phone {
+            margin: 10px;
+        }
+        .phone {
+    margin: 81px;
+    padding: 10px; /* Add padding for additional space */
+    /* border: 1px solid #ccc; Optional: Add a border for further separation */
+}
+    </style>
+</head>
+<body>
+    <h1>Which iPhone is right for you?</h1>
+
+    <div class="phone-container" id="phoneContainer">
+        <!-- Mobile phones will be dynamically added here -->
+    </div>
+
+    <script>
+        // Define an array of phone names and corresponding image URLs
+        const phones = [
+            { name: "iPhone11 pro ", image: "image/mobile1.webp" }, 
+            { name: "iPhone 11", image: "image/mobile1.webp" },
+            { name: "iPhone x", image: "image/mobile1.webp" },
+            { name: "iPhone 8", image: "image/mobile1.webp" }
+        
+        ];
+
+        // Function to dynamically generate phone elements
+        function generatePhoneElement(phone) {
+            const phoneContainer = document.getElementById("phoneContainer");
+            const phoneElement = document.createElement("div");
+            phoneElement.classList.add("phone");
+
+            const phoneImage = document.createElement("img");
+            phoneImage.src = phone.image;
+            phoneImage.alt = phone.name;
+            phoneImage.width = 150;
+            phoneElement.appendChild(phoneImage);
+
+            const phoneName = document.createElement("p");
+            phoneName.textContent = phone.name;
+            phoneElement.appendChild(phoneName);
+
+            phoneContainer.appendChild(phoneElement);
+        }
+
+        // Loop through the phones array and generate elements
+        phones.forEach(phone => {
+            generatePhoneElement(phone);
+        });
+    </script>
+</body>
+</html>
