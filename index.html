@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    
+
     <style>
-       iframe[seamless] {
+        iframe[seamless] {
             border: none;
         }
 
@@ -25,8 +25,7 @@
 
         .image-list li {
             text-align: center;
-            margin: 10px;
-
+            margin: 20px;
         }
 
         .image-list img {
@@ -114,113 +113,110 @@
             font-size: 14px;
         }
 
-        /* .dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            background-color: #ffffff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        } */
-
-        /* .icon:hover .dropdown {
-            display: block;
-        }
-
-        .dropdown div {
-            padding: 10px;
-            cursor: pointer;
-        } */
-
         .frame2 {
             bottom: 20px;
         }
+
         /* Style the select element */
-.form-select {
-    width: 121px;
-    padding: -54px;
-    font-size: 13px;
-    border: none;
-    border-radius: 5px;
-    background-color: #fff;
-    color: #333;
-    text-align: center;
-    font-style: italic;
-}
+        .form-select {
+            width: 121px;
+            padding: -54px;
+            font-size: 13px;
+            border: none;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #333;
+            text-align: center;
+            font-style: italic;
+        }
 
 
 
 
-/* Style the selected option */
-.form-select option[selected] {
-  font-weight: bold;
-}
+        /* Style the selected option */
+        .form-select option[selected] {
+            font-weight: bold;
+        }
 
-/* Style the dropdown arrow */
-.form-select::after {
-  content: "\25BC"; /* Down arrow symbol */
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-.image-list img {
-    border-radius: 50%;
-    max-width: 100px;
-    height: auto;
-    margin-bottom: 10px; /* Add some margin at the bottom of the image */
-    padding: 18px;
-}
+        /* Style the dropdown arrow */
+        .form-select::after {
+            content: "\25BC";
+            /* Down arrow symbol */
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
 
-.image-list div {
-    text-align: center; /* Center the text */
-    margin-top: -5px;
-    color: black;
-    font-style: italic;
-    margin-bottom: -174px;
-    font-size: 13px;
+        .image-list img {
+            border-radius: 50%;
+            max-width: 100px;
+            height: auto;
+            margin-bottom: 10px;
+            /* Add some margin at the bottom of the image */
+            padding: 18px;
+        }
 
-}
-.dropbtn {
-  /* background-color: #4CAF50; */
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
+        .image-list div {
+            text-align: center;
+            /* Center the text */
+            margin-top: -5px;
+            color: black;
+            font-style: italic;
+            margin-bottom: -174px;
+            font-size: 13px;
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
+        }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    bottom: 11px;
-    right: -34px;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
+        .dropbtn {
+            font-size: 16px;
+            cursor: pointer;
+            position: absolute;
+            top: 95px;
+            
+        }
+        a{
+            color: black;
+        }
 
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
 
- .dropdown-content a:hover {background-color: #f1f1f1;}  
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            right: -24px;
+        }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-} 
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
 
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
 
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
     </style>
+
 </head>
 
 <body>
@@ -266,7 +262,7 @@
     <div>
         <ul class="image-list" id="grocery">
             <!-- Images will be dynamically added here using JavaScript -->
-           
+
         </ul>
     </div>
 
@@ -277,97 +273,185 @@
             {
                 "image": "image/grocery.webp",
                 "text": "Grocery",
-                "isDropdown":"false"
+                "isDropdown": "false",
+                "option_url": "file:///home/hp/flipcart/normal.html"
 
             },
             {
                 "image": "image/mobile.webp",
                 "text": "Mobile",
-                "isDropdown":"false"
+                "isDropdown": "false",
+                "option_url": "file:///home/hp/flipcart/normal.html"
+            
+             },
 
-            },
+                
+
+        
             {
                 "image": "image/fashion.webp",
                 "text": "Fashion",
-                "isDropdown":"true",
-                "Option":["men's footwear","women ethnic","men's shirt"]
+                "isDropdown": "true",
+                "Option": [
+                    {
+                        "option_name": "mens footwear",
+                        "option_url": "https://www.facebook.com/login/"
+                    },
+
+                    {
+                        "option_name": "women ethnic",
+                        "option_url": "https://www.facebook.com/login/"
+                    },
+
+                    {
+                        "option_name": "mens shirt",
+                        "option_url": "file:///home/hp/flipcart/normal.html"
+                    },
+
+
+                ]
 
             },
             {
                 "image": "image/electronics.webp",
                 "text": "Electornics",
-                "isDropdown":"true",
-                "Option":["all","gaming","soundbars"]
+                "isDropdown": "true",
+                "Option": [
+                    {
+                        "option_name": "all",
+                        "option_url": "https://www.facebook.com/login/"
+                    },
 
+                    {
+                        "option_name": "gaming",
+                        "option_url": "https://www.facebook.com/login/"
+                    },
+
+                    {
+                        "option_name": "soundbars",
+                        "option_url": "https://www.facebook.com/login/"
+                    },
+
+
+                ]
             },
             {
                 "image": "image/furniture.webp",
                 "text": "Home&Furniture",
-                "isDropdown":"true",
-                "Option":["bedsheets","tool and utility","tiles"]
+                "isDropdown": "true",
+                "Option": [
+                    {
+                        "option_name": "bedsheets",
+                        "option_url": "https://www.facebook.com/login/"
+                    },
 
+                    {
+                        "option_name": "tool and utility",
+                        "option_url": "https://www.facebook.com/login/"
+                    },
+
+                    {
+                        "option_name": "tiles",
+                        "option_url": "https://www.facebook.com/login/"
+                    },
+
+
+                ]
             },
             {
                 "image": "image/appliances.webp",
                 "text": "Appliances",
-                "isDropdown":"false"
+                "isDropdown": "false",
+                "option_url": "file:///home/hp/flipcart/normal.html"
 
             },
             {
                 "image": "image/travel.webp",
                 "text": "Travel",
-                "isDropdown":"false",
-                
+                "isDropdown": "false",
+                "option_url": "file:///home/hp/flipcart/normal.html"
+
             },
             {
                 "image": "image/toy.webp",
                 "text": "Beauty,Toy&More",
-                "isDropdown":"true",
-                "Option":["food & drinks","baby care","lip makeup"]
+                "isDropdown": "true",
+                "Option": [
+                    {
+                        "option_name": "food $ drinks",
+                        "option_url": "https://www.facebook.com/login/"
+                    },
 
+                    {
+                        "option_name": "baby care",
+                        "option_url": "https://www.facebook.com/login/"
+                    },
+
+                    {
+                        "option_name": "lip makeup",
+                        "option_url": "https://mail.google.com/mail/u/0/?tab=rm&ogbl#chat/dm/l2GrEUAAAAE"
+                    },
+
+
+                ]
 
 
             },
             {
                 "image": "image/twowheelers.webp",
                 "text": "Two Wheelers",
-                "isDropdown":"true",
-                "Option":["petrol vechiles","electric vechiles"]
-//                 "Option":[
-//     {"option_name":"petrol vechiles",
-//     "option_url":"https://www.facebook.com/login/"},
+                "isDropdown": "true",
 
-//     {"option_name":""electric vechiles",
-//     "option_url":"https://www.facebook.com/login/"},
-    
-// ]
+                "Option": [
+                    {
+                        "option_name": "petrol vechiles",
+                        "option_url": "https://www.facebook.com/login/"
+                    },
+
+                    {
+                        "option_name": "electric vechiles",
+                        "option_url": "https://www.facebook.com/login/"
+                    },
+                    
+
+
+
+
+                ]
             },
         ];
 
         imageList.forEach(item => {
-    var li = document.createElement("li");
-    if (item.isDropdown === "true") {
-        
-        
-        let options = item.Option.map(option => `<a href="https://www.facebook.com/login/">${option}</a>`).join('');
-        li.innerHTML = `
-            <img src='${item.image}' alt='${item.text}'><br>
-            <div class= "dropdown">
-                <div class="dropbtn">${item.text}</div>
-  <div class="dropdown-content">
-    ${options}
-  </div>
- </div>
-        `;
-    } else {
-        li.innerHTML = `
-            <img src='${item.image}' alt='${item.text}'>
-            <div>${item.text}</div>
-        `;
-    }
-    grocery.appendChild(li);
-});
-</script>
-</body>
-</html>
+            var li = document.createElement("li");
+            if (item.isDropdown === "true") {
 
+
+                let output = ""
+                for (let i = 0; i < item.Option.length; i++) {
+                    output += `<li><a href="${item.Option[i].option_url}">${item.Option[i].option_name}</li></a>`
+                }
+                li.innerHTML = `
+                    <div class="dropdown">
+                        <img src='${item.image}' alt='${item.text}'>
+                        <div class="dropbtn">${item.text}</div>
+                        <ul class="dropdown-content">
+                            ${output}
+                        </ul>
+                    </div>
+        
+        `;
+            } else {
+                li.innerHTML = `
+                <div class= "dropdown">
+                    <img src='${item.image}' alt='${item.text}'>
+                    <div class="drpbtn"> 
+                <a href="${item.option_url}">${item.text}</a></div>
+                </div>
+        `;
+            }
+            grocery.appendChild(li);
+        });
+    </script>
+</body>
+
+</html>
