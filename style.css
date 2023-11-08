@@ -1,0 +1,369 @@
+/*index.html css here */
+        iframe[seamless] {
+            border: none;
+        }
+
+        .image-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            background-color: white;
+        }
+
+        .image-list li {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .image-list img {
+            border-radius: 50%;
+            max-width: 100px;
+            height: auto;
+
+        }
+
+        .image-list p {
+            margin-top: 10px;
+            /* Add some space between image and text */
+            color: black;
+            /* Darken the text color */
+            font-style: italic;
+        }
+
+        .icon i {
+            margin-right: 5px;
+        }
+        
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .left {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            color: #007bff;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .explore-plus {
+            font-size: 12px;
+            margin-top: 5px;
+            margin-bottom: -38px;
+            margin-left: -95px;
+        }
+
+        .plus {
+            color: #ffd700;
+        }
+
+        .search-box {
+            background-color: #f0f8ff;
+            /* Light blue color */
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+
+        input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            width: 240px;
+        }
+
+        .icon {
+            font-size: 20px;
+            /* Larger font size for icons */
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .icon-text {
+            font-size: 14px;
+        }
+
+        .frame2 {
+            bottom: 20px;
+        }
+
+        /* Style the select element */
+        .form-select {
+            width: 121px;
+            padding: -54px;
+            font-size: 13px;
+            border: none;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #333;
+            text-align: center;
+            font-style: italic;
+        }
+
+
+
+
+        /* Style the selected option */
+        .form-select option[selected] {
+            font-weight: bold;
+        }
+
+        /* Style the dropdown arrow */
+        .form-select::after {
+            content: "\25BC";
+            /* Down arrow symbol */
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .image-list img {
+            border-radius: 50%;
+            max-width: 100px;
+            height: auto;
+            margin-bottom: 10px;
+            /* Add some margin at the bottom of the image */
+            padding: 18px;
+        }
+
+        .image-list div {
+            text-align: center;
+            /* Center the text */
+            margin-top: -5px;
+            color: black;
+            font-style: italic;
+            margin-bottom: -174px;
+            font-size: 13px;
+
+        }
+
+        .dropbtn {
+            font-size: 16px;
+            cursor: pointer;
+            position: absolute;
+            top: 95px;
+            
+        }
+        a{
+            color: black;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            right: -24px;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+    /* mobile.html css here */
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color:black;
+            font-size: xx-large;
+            margin-top: 50px;
+        }
+
+        .phone-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .phone {
+            margin: 70px; /* Updated margin to 10px for better spacing */
+            padding: 10px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        .rating-button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            font-size: 12px;
+            cursor: pointer;
+            position: absolute;
+            bottom: 0px;
+            left: 24%;
+            transform: translateX(-50%);
+        }
+
+        .tooltip {
+            visibility: hidden;
+            width: 120px;
+            background-color: #4caf50;
+            color: white;
+            text-align: center;
+            padding: 5px;
+            border-radius: 5px;
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .rating-button:hover + .tooltip {
+            visibility: visible;
+        }
+
+        .tooltip::after {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent #4caf50 transparent;
+        }
+/* buy.html css here */
+
+.buybody {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    padding-top: 80px;
+}
+
+.container {
+    text-align: center;
+}
+
+.product-container {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    justify-content: center;
+}
+
+.product {
+    /* margin: 6px 38px; */
+background-color: #fff;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0,0,0,0.1);
+padding: 20px;
+margin-left: -600px;
+margin-top: -239px;
+}
+
+
+
+
+.product img {
+    max-width: 100%;
+}
+
+button {
+    display: inline-block;
+    width: 48%;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 1%;
+}
+
+.add-to-cart {
+    background-color: #2196F3;
+    color: #fff;
+}
+
+.buy-now {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+button {
+    width: 48%;
+    margin: 0;
+}
+.product-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px; /* Added gap between image and details */
+}
+
+.product img {
+    max-width: 100%;
+}
+
+.product-details {
+    max-width: 500px; /* Adjusted max-width for details */
+    text-align: left;
+    margin-top: -250px
+}
+.buynavbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff; /* Set the desired background color */
+    z-index: 1000; /* Set a high z-index value to ensure it appears on top */
+}

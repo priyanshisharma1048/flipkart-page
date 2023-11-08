@@ -4,34 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML Page with CSS</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-
-        h1 {
-            color:black;
-            font-size: xx-large;
-            margin-top: 50px;
-        }
-
-        .phone-container {
-            display: flex;
-            justify-content: center;
-        }
-
-        .phone {
-            margin: 10px;
-        }
-        .phone {
-    margin: 81px;
-    padding: 10px; /* Add padding for additional space */
-    /* border: 1px solid #ccc; Optional: Add a border for further separation */
-}
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div>
+        <nav class="navbar">
+            <div class="left">
+                <a href="#" class="logo">Flipkart</a>
+                <div class="explore-plus">Explore <span class="plus">Plus</span></div>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Search for product, brand, and more">
+                <div class="dropdown">
+                    <!-- Add your search options here -->
+                </div>
+            </div>
+            <div class="icon">
+                <span class="icon-text"><i class="fa-regular fa-heart"></i> become a Seller</span>
+                <div class="dropdown">
+                    <!-- Add your options here -->
+                </div>
+            </div>
+            <div class="icon">
+                <span class="icon-text"><i class="fas fa-user"></i> Sign In</span>
+                <div class="dropdown">
+                    <!-- Add your sign in options here -->
+                </div>
+            </div>
+            <div class="icon">
+                <span class="icon-text"><i class="fas fa-shopping-cart"></i> Cart</span>
+                <div class="dropdown">
+                    <!-- Add your cart options here -->
+                </div>
+            </div>
+            <div class="icon">
+                <span class="icon-text"></i>...</span>
+                <div class="dropdown">
+                    <!-- Add your options here -->
+                </div>
+            </div>
+        </nav>
+
+    </div>
     <h1>Which iPhone is right for you?</h1>
 
     <div class="phone-container" id="phoneContainer">
@@ -39,16 +53,19 @@
     </div>
 
     <script>
-        // Define an array of phone names and corresponding image URLs
         const phones = [
-            { name: "iPhone11 pro ", image: "image/mobile1.webp" }, 
-            { name: "iPhone 11", image: "image/mobile1.webp" },
-            { name: "iPhone x", image: "image/mobile1.webp" },
-            { name: "iPhone 8", image: "image/mobile1.webp" }
+            { name: "iPhone11 pro", image: "image/mobile1.webp", price: "$999", rating: "4.8" }, 
+            { name: "iPhone 11", image: "image/mobile2.jpg", price: "$699", rating: "4.6" },
+            { name: "iPhone x", image: "image/mobile3.webp", price: "$899", rating: "4.9" },
+            { name: "iPhone 8", image: "image/mobiile4.webp", price: "$599", rating: "4.5" },
+            { name: "iPhone12", image: "image/mobile5.jpeg", price: "$799", rating: "4.7" },
+            { name: "iPhone SE", image: "image/mobile6.webp", price: "$399", rating: "4.4" },
+            { name: "iPhone XR", image: "image/mobile7.avif", price: "$649", rating: "4.6" },
+            { name: "iPhone 13 Pro", image: "image/mobile8.jpg", price: "$1099", rating: "4.9" }
         
+            
         ];
 
-        // Function to dynamically generate phone elements
         function generatePhoneElement(phone) {
             const phoneContainer = document.getElementById("phoneContainer");
             const phoneElement = document.createElement("div");
@@ -59,17 +76,45 @@
             phoneImage.alt = phone.name;
             phoneImage.width = 150;
             phoneElement.appendChild(phoneImage);
+            phoneImage.onclick = function() {
+        window.location.href = "file:///home/hp/flipcart/buy.html"; // Change the path to your buy.html file
+    };
+
 
             const phoneName = document.createElement("p");
             phoneName.textContent = phone.name;
             phoneElement.appendChild(phoneName);
 
+            const phonePrice = document.createElement("p");
+            phonePrice.textContent = "Price: " + phone.price;
+            phoneElement.appendChild(phonePrice);
+
+            const ratingButton = document.createElement("button");
+            ratingButton.classList.add("rating-button");
+            ratingButton.textContent = "Rating";
+            phoneElement.appendChild(ratingButton);
+
+            const tooltip = document.createElement("div");
+            tooltip.classList.add("tooltip");
+            tooltip.textContent = getStarRating(phone.rating);
+            phoneElement.appendChild(tooltip);
+
             phoneContainer.appendChild(phoneElement);
         }
 
-        // Loop through the phones array and generate elements
+        function getStarRating(rating) {
+            const numStars = Math.floor(parseFloat(rating));
+            let starRating = "";
+            for (let i = 0; i < numStars; i++) {
+                starRating += "★";
+            }
+            return starRating;
+        }
+
         phones.forEach(phone => {
             generatePhoneElement(phone);
+            
+            
         });
     </script>
 </body>
