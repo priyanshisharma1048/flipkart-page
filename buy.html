@@ -1,102 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mobile Shop</title>
-   <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div class="buybody">
-        <nav class="navbar">
-            <div class="left">
-                <a href="#" class="logo">Flipkart</a>
-                <div class="explore-plus">Explore <span class="plus">Plus</span></div>
+    <nav class="navbar">
+        <div class="left">
+            <a href="#" class="logo">Flipkart</a>
+            <div class="explore-plus">Explore <span class="plus">Plus</span></div>
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="Search for product, brand, and more">
+            <div class="dropdown">
+                <!-- Add your search options here -->
             </div>
-            <div class="search-box">
-                <input type="text" placeholder="Search for product, brand, and more">
-                <div class="dropdown">
-                    <!-- Add your search options here -->
-                </div>
+        </div>
+        <div class="icon">
+            <span class="icon-text"><i class="fa-regular fa-heart"></i> become a Seller</span>
+            <div class="dropdown">
+                <!-- Add your options here -->
             </div>
-            <div class="icon">
-                <span class="icon-text"><i class="fa-regular fa-heart"></i> become a Seller</span>
-                <div class="dropdown">
-                    <!-- Add your options here -->
-                </div>
+        </div>
+        <div class="icon">
+            <span class="icon-text"><i class="fas fa-user"></i> Sign In</span>
+            <div class="dropdown">
+                <!-- Add your sign in options here -->
             </div>
-            <div class="icon">
-                <span class="icon-text"><i class="fas fa-user"></i> Sign In</span>
-                <div class="dropdown">
-                    <!-- Add your sign in options here -->
-                </div>
+        </div>
+        <div class="icon">
+            <span class="icon-text"><i class="fas fa-shopping-cart"></i> Cart</span>
+            <div class="dropdown">
+                <!-- Add your cart options here -->
             </div>
-            <div class="icon">
-                <span class="icon-text"><i class="fas fa-shopping-cart"></i> Cart</span>
-                <div class="dropdown">
-                    <!-- Add your cart options here -->
-                </div>
+        </div>
+        <div class="icon">
+            <span class="icon-text"></i>...</span>
+            <div class="dropdown">
+                <!-- Add your options here -->
             </div>
-            <div class="icon">
-                <span class="icon-text"></i>...</span>
-                <div class="dropdown">
-                    <!-- Add your options here -->
-                </div>
-            </div>
-        </nav>
+        </div>
 
-    
-    
-    
-    <div class="container">
-        <div class="product-container">
-            <div class="product">
-                <img src="image/mobile1.webp" alt="Mobile Image">
-                
-                <div class="button-container">
-                    <button class="add-to-cart">Add to Cart</button>
-                    <button class="buy-now">Buy</button>
-                </div>
-                </div>
-                
+    </nav>
+    <div class="buybody">
+        <div class="container">
 
-            <div class="product-details">
-               
-                
-                <!-- Specifications Section -->
-                <h3>Specifications</h3>
-                <h4>General</h4>
-                <p>Sales Package: 1 X Back Cover</p>
-                <p>Model Number: ENFL-LINE-TPU-iP-13-BLACK</p>
-                <p>Designed For: Apple iPhone 13</p>
-                <p>Brand Color: Black</p>
-                
-                <h4>Product Details</h4>
-                <p>Pack of: 1</p>
-                
-                <h4>Manufacturing, Packaging and Import Info</h4>
-                <!-- Add relevant information here -->
-                
-                <!-- Frequently Bought Together Section -->
-                <!-- Add relevant information here -->
-                
-                <!-- Seller Information Section -->
-                <!-- Add relevant information here -->
-               
+            <div class="product-container">
+                <div class="product">
+                    <img src="image/mobile1.webp" alt="Mobile Image">
+
+                    <div class="button-container">
+                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="buy-now">Buy</button>
+                    </div>
+                </div>
+
+
+                <div class="product-details">
+
+
+                    <!-- Specifications Section -->
+                    <h3>Specifications</h3>
+                    <h4>General</h4>
+                    <p>Sales Package: 1 X Back Cover</p>
+                    <p>Model Number: ENFL-LINE-TPU-iP-13-BLACK</p>
+                    <p>Designed For: Apple iPhone 13</p>
+                    <p>Brand Color: Black</p>
+
+                    <h4>Product Details</h4>
+                    <p>Pack of: 1</p>
+
+                    <h4>Manufacturing, Packaging and Import Info</h4>
+                    <!-- Add relevant information here -->
+
+                    <!-- Frequently Bought Together Section -->
+                    <!-- Add relevant information here -->
+
+                    <!-- Seller Information Section -->
+                    <!-- Add relevant information here -->
+
+                </div>
             </div>
         </div>
     </div>
-   </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var addToCartButton = document.querySelector('.add-to-cart');
             var buyButton = document.querySelector('.buy-now');
 
-            addToCartButton.addEventListener('click', function() {
+            addToCartButton.addEventListener('click', function () {
                 alert('Product added to cart!');
             });
 
-            buyButton.addEventListener('click', function() {
+            buyButton.addEventListener('click', function () {
                 alert('Product purchased!');
             });
         });
@@ -108,4 +108,5 @@
         }
     </script>
 </body>
+
 </html>
