@@ -54,14 +54,14 @@
 
     <script>
         const phones = [
-            { id:"1",name: "iPhone11 pro", image: "image/mobile1.webp", price: "$999", rating: "4.8" ,designedfor:"apple",color:"red",modelnumber:"123"}, 
-            {id:"2", name: "iPhone 11", image: "image/mobile2.jpg", price: "$699", rating: "4.6",designedfor:"apple",color:"red",modelnumber:"456" },
-            { id:"3",name: "iPhone x", image: "image/mobile3.webp", price: "$899", rating: "4.9" ,designedfor:"apple",color:"red",modelnumber:"789"},
-            { id:"4",name: "iPhone 8", image: "image/mobiile4.webp", price: "$599", rating: "4.5",designedfor:"apple",color:"red",modelnumber:"012" },
-            { id:"5",name: "iPhone12", image: "image/mobile5.jpeg", price: "$799", rating: "4.7" ,designedfor:"apple",color:"red",modelnumber:"345"},
-            { id:"6",name: "iPhone SE", image: "image/mobile6.webp", price: "$399", rating: "4.4" ,designedfor:"apple",color:"red",modelnumber:"678"},
-            { id:"7",name: "iPhone XR", image: "image/mobile7.avif", price: "$649", rating: "4.6" ,designedfor:"apple",color:"red",modelnumber:"922"},
-            { id:"8",name: "iPhone 13 Pro", image: "image/mobile8.jpg", price: "$1099", rating: "4.9",designedfor:"apple",color:"red",modelnumber:"223" }
+            { name: "B Natural Orange Juice,", image: "image/food1.webp", price: "rs.187", rating: "4.8" }, 
+            { name: "Modicare Well Noni Juice", image: "image/food2.webp", price: "rs.470", rating: "4.6" },
+            { name: "Scorist California Almonds ", image: "image/food3.webp", price: "rs.703", rating: "4.9" },
+            { name: "zanduhoney", image: "image/food4.webp", price: "$599", rating: "4.5" },
+            { name: "juice", image: "image/food5.webp", price: "$20", rating: "4.7" },
+            { name: "peanut butter", image: "image/food6.webp", price: "$399", rating: "4.4" },
+            { name: "dairymilk", image: "image/food7.webp", price: "$471", rating: "4.6" },
+            { name: "iPhone 13 Pro", image: "image/mobile8.jpg", price: "$1099", rating: "4.9" }
         
             
         ];
@@ -77,7 +77,7 @@
             phoneImage.width = 150;
             phoneElement.appendChild(phoneImage);
             phoneImage.onclick = function() {
-        window.location.href = "file:///home/hp/flipcart/buy.html?id="+phone.id; // Change the path to your buy.html file
+        window.location.href = "file:///home/hp/flipcart/buy.html"; // Change the path to your buy.html file
     };
 
 
