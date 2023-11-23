@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    
+
     <div>
         <nav class="navbar">
             <div class="left">
@@ -28,17 +28,34 @@
                 </div>
             </div>
             <div class="icon">
-                <span class="icon-text"><i class="fa-regular fa-heart"></i> become a Seller</span>
+                <span class="icon-text"><i class="fa-regular fa-heart" id="heart"></i> become a Seller</span>
                 <div class="dropdown">
                     <!-- Add your options here -->
                 </div>
             </div>
-            <div class="icon">
+            <div class="icon" id="signIn">
                 <span class="icon-text"><i class="fas fa-user"></i> Sign In</span>
                 <div class="dropdown">
                     <!-- Add your sign in options here -->
+
+                    <div class="form-popup" id="myForm">
+                        <form action="/action_page.php" class="form-container">
+                            <h1>Login</h1>
+                            <label for="email"><b>Email</b></label>
+                            <input type="text" placeholder="Enter Email" name="email" id="e-mail" required>
+                            <label for="psw"><b>Password</b></label>
+                            <input type="password" placeholder="Enter Password" name="psw" id="password" required>
+                            <button type="button" class="btn" onclick="loginForm()">Login</button>
+                            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                        </form>
+                    </div>
                 </div>
+
             </div>
+            <div class="icon" id="logoutSection" style="display: none;">
+                <span class="icon-text" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</span>
+            </div>
+
             <div class="icon">
                 <span class="icon-text"><i class="fas fa-shopping-cart"></i> Cart</span>
                 <div class="dropdown">
@@ -62,6 +79,7 @@
     </div>
 
     <script>
+    
         let grocery = document.getElementById("grocery");
 
         const imageList = [
@@ -77,12 +95,12 @@
                 "text": "Mobile",
                 "isDropdown": "false",
                 "option_url": "file:///home/hp/flipcart/mobile.html"
-            
-             },
 
-                
+            },
 
-        
+
+
+
             {
                 "image": "image/fashion.webp",
                 "text": "Fashion",
@@ -174,7 +192,7 @@
                 "Option": [
                     {
                         "option_name": "food $ drinks",
-                        "option_url": "https://www.facebook.com/login/"
+                        "option_url": "file:///home/hp/flipcart/food.html"
                     },
 
                     {
@@ -207,7 +225,7 @@
                         "option_name": "electric vechiles",
                         "option_url": "https://www.facebook.com/login/"
                     },
-                    
+
 
 
 
@@ -246,6 +264,76 @@
             }
             grocery.appendChild(li);
         });
+        (function () {
+            const heart = document.getElementById('heart');
+            heart.addEventListener('click', function () {
+                if (heart.classList.value == "fa-regular fa-heart red") {
+                    localStorage.setItem("like", "False")
+                }
+                else {
+                    localStorage.setItem("like", "True")
+                }
+                heart.classList.toggle('red');
+            });
+        })();
+        const heart = document.getElementById('heart');
+        isLiked = localStorage.getItem('like')
+        if (isLiked == "True") {
+            heart.classList.toggle("red")
+        }
+
+
+        const signInIcon = document.querySelector('.icon-text i.fas.fa-user');
+        signInIcon.addEventListener('click', function () {
+            document.getElementById("myForm").style.display = "block";
+        });
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+
+        function loginForm() {
+            const email = "priyanshisharma@1048gmail.com";
+            const password = "kiyansh@24";
+            if (email === document.getElementById("e-mail").value && password === document.getElementById("password").value) {
+                localStorage.setItem("login", "true");
+                alert("Login successfully");
+                closeForm();
+                updateLoginState(); // Move this call here
+            } else {
+                localStorage.setItem("login", "false");
+                alert("Email or password incorrect");
+            }
+        }
+
+        const logoutBtn = document.getElementById('logoutBtn');
+        logoutBtn.addEventListener('click', function () {
+            localStorage.setItem('login', 'false');
+            updateLoginState();
+        });
+
+        // Function to update login state
+        function updateLoginState() {
+            const isLoggedIn = localStorage.getItem('login') === 'true';
+            const logoutSection = document.getElementById('logoutSection');
+            const signIn = document.getElementById('signIn');
+
+            if (isLoggedIn) {
+                logoutSection.style.display = 'block';
+                signIn.style.display = 'none';
+
+
+
+            } else {
+                logoutSection.style.display = 'none';
+                signIn.style.display = 'block'
+            }
+
+        }
+function likeState(){
+    
+}
+        updateLoginState()
     </script>
 </body>
 
