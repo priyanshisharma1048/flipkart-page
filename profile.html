@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        #profile-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #profile-picture {
+            width: 88px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        #username {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        #email {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div id="profile-container">
+        <img id="profile-picture" src="" alt="Profile Picture">
+        <div id="username"></div>
+        <div id="email"></div>
+
+        <script>
+            // Retrieve user ID from localStorage
+            const userId = localStorage.getItem('userId');
+            
+            // Your user list data
+            const userList = [
+                {"id": 1, "email": "priyanshisharma1048@gmail.com", "fullName": "priyanshisharma", "profilepicture": "image/priyanshi.jpeg","password":"kiyanshu"},
+                {"id":2,"email":"utkarshrathore1234@gmail.com","password":"kiyanshik","fullName":"utkarsh rathore","profilepicture":"image/utkarsh.jpeg"},{"id":3,"email":"katrinakaif456@gmail.com","password":"kiyansh","fullName":"katrinakaif","profilepicture":"image/katrina.jpeg"}
+                // Add other users as needed
+            ];
+            // Find the user based on the stored ID
+            const user = userList.find(u => u.id == userId);
+
+            // Update the profile page content with user information
+            if (user) {
+                document.getElementById('profile-picture').src = user.profilepicture;
+                document.getElementById('username').innerText = user.fullName;
+                document.getElementById('email').innerText = user.email;
+            } else {
+                // Handle the case when the user is not found (e.g., redirect to login page)
+                alert('User not found. Please log in again.');
+                window.location.href = 'login.html';
+            }
+        </script>
+    </div>
+</body>
+</html>

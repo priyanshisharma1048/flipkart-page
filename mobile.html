@@ -65,6 +65,60 @@
         
             
         ];
+        // Function to add phone to cart
+    function addToCart(phoneId) {
+        const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+        if (!cartItems.includes(phoneId)) {
+            cartItems.push(phoneId);
+            localStorage.setItem("cart", JSON.stringify(cartItems));
+            alert("Phone added to cart!");
+        } else {
+            alert("This phone is already in your cart!");
+        }
+    }
+
+    // Function to generate phone elements
+    function generatePhoneElement(phone) {
+        // ... (existing code)
+
+        const addToCartButton = document.createElement("button");
+        addToCartButton.classList.add("add-to-cart-button");
+        addToCartButton.textContent = "Add to Cart";
+        addToCartButton.onclick = function() {
+            addToCart(phone.id);
+        };
+        phoneElement.appendChild(addToCartButton);
+
+        phoneContainer.appendChild(phoneElement);
+    }
+
+    // ... (existing code)
+
+    phones.forEach(phone => {
+        generatePhoneElement(phone);
+    });
+</script>
+
+<!-- Additional code for shopping cart -->
+<script>
+    // Function to display phones in the cart
+    function displayCart() {
+        const cartContainer = document.getElementById("cartContainer");
+        const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+        const cartPhones = phones.filter(phone => cartItems.includes(phone.id));
+
+        cartPhones.forEach(phone => {
+            const cartPhoneElement = document.createElement("div");
+            cartPhoneElement.textContent = phone.name;
+            cartContainer.appendChild(cartPhoneElement);
+        });
+    }
+
+    // Call the displayCart function when the page loads
+    window.onload = displayCart;
+
 
         function generatePhoneElement(phone) {
             const phoneContainer = document.getElementById("phoneContainer");
@@ -77,7 +131,7 @@
             phoneImage.width = 150;
             phoneElement.appendChild(phoneImage);
             phoneImage.onclick = function() {
-        window.location.href = "file:///home/hp/flipcart/buy.html?id="+phone.id; // Change the path to your buy.html file
+        window.location.href = "file:///home/hp/flipcart/mobileDetail.html?id="+phone.id; // Change the path to your buy.html file
     };
 
 

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Your Cart</h1>
+
+    <div class="cart-container" id="cartContainer">
+        <!-- Cart items will be dynamically added here -->
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+    var cartContainer = document.getElementById("cartContainer");
+
+    // Retrieve cart items from local storage
+    var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Iterate through each item in the cart and generate HTML elements
+    cartItems.forEach(item => {
+        generateCartItemElement(item);
+    });
+
+    function generateCartItemElement(item) {
+        const cartItemElement = document.createElement("div");
+        cartItemElement.classList.add("cart-item");
+
+        // Display the image
+        const itemImage = document.createElement("img");
+        itemImage.src = item.image;
+        itemImage.alt = item.name;  // Add alt text for accessibility
+        cartItemElement.appendChild(itemImage);
+
+        const itemName = document.createElement("p");
+        itemName.textContent = item.name;
+        cartItemElement.appendChild(itemName);
+
+        const itemPrice = document.createElement("p");
+        itemPrice.textContent = "Price: " + item.price;
+        cartItemElement.appendChild(itemPrice);
+
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "Remove";
+
+        // Add inline styles for the button
+        removeButton.style.backgroundColor = "#ff5733";
+        removeButton.style.color = "white";
+        removeButton.style.border = "none";
+        removeButton.style.padding = "8px 12px";
+        removeButton.style.cursor = "pointer";
+        removeButton.style.fontSize = "14px";
+        removeButton.style.width= "100px";
+        removeButton.style.marginBottom="30px"
+
+        // Add hover effect
+        removeButton.addEventListener('mouseenter', function () {
+            removeButton.style.backgroundColor = "#ff4500";
+        });
+
+        removeButton.addEventListener('mouseleave', function () {
+            removeButton.style.backgroundColor = "#ff5733";
+        });
+
+        // Add event listener to remove the item when the button is clicked
+        removeButton.addEventListener('click', function () {
+            // Remove the item from the cartItems array
+            const index = cartItems.indexOf(item);
+            if (index !== -1) {
+                cartItems.splice(index, 1);
+
+                // Update local storage with the modified cartItems array
+                localStorage.setItem('cart', JSON.stringify(cartItems));
+
+                // Remove the cart item from the HTML
+                cartContainer.removeChild(cartItemElement);
+                console.log('Item removed:', item);
+            }
+        });
+
+        cartItemElement.appendChild(removeButton);
+        cartContainer.appendChild(cartItemElement);
+    }
+});
+
+</script>
+</body>
+</html>

@@ -444,4 +444,14 @@ button {
   .form-container .btn:hover, .open-button:hover {
     opacity: 1;
   }
-  
+  .cart-item img {
+    max-width: 100px; /* Adjust the value to your preference */
+    height: auto; /* Maintain aspect ratio */
+}
+.hide {
+    display: none;
+  }
+   /* remove button {
+    width: 8%;
+    margin: -25px;
+} */

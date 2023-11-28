@@ -81,18 +81,7 @@
         </div>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var addToCartButton = document.querySelector('.add-to-cart');
-            var buyButton = document.querySelector('.buy-now');
-
-            addToCartButton.addEventListener('click', function () {
-                alert('Product added to cart!');
-            });
-
-            buyButton.addEventListener('click', function () {
-                alert('Product purchased!');
-            });
-        });
+       
 
         function checkDelivery() {
             var pincode = document.getElementById('pincode').value;
@@ -122,7 +111,7 @@
             }
             
         }
-        function updateProductDetails(phone) {
+function updateProductDetails(phone) {
                 document.getElementById('mobileName').textContent = phone.name;
                 document.getElementById('modelNumber').textContent = phone.modelnumber;
                 document.getElementById('designedFor').textContent = phone.designedfor;
@@ -130,6 +119,28 @@
                 document.getElementById('image').src=phone.image;
             }
 updateProductDetails(phone)
+document.addEventListener('DOMContentLoaded', function () {
+        var addToCartButton = document.querySelector('.add-to-cart');
+        var buyButton = document.querySelector('.buy-now');
+
+        addToCartButton.addEventListener('click', function () {
+            var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+            var phoneAlreadyInCart = cartItems.some(item => item.id === phone.id);
+debugger
+            if (!phoneAlreadyInCart) {
+                cartItems.push(phone);
+                localStorage.setItem('cart', JSON.stringify(cartItems));
+                alert('Product added to cart!');
+            } else {
+                alert('Product is already in the cart!');
+            }
+        });
+
+        buyButton.addEventListener('click', function () {
+            alert('Product purchased!');
+        });
+    });
     </script>
 </body>
 
