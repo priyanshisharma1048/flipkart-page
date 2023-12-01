@@ -24,7 +24,12 @@
 
     // Iterate through each item in the cart and generate HTML elements
     cartItems.forEach(item => {
-        generateCartItemElement(item);
+        if(
+        item.userId===localStorage.getItem("userId")
+        ){
+            generateCartItemElement(item);
+        }
+        
     });
 
     function generateCartItemElement(item) {

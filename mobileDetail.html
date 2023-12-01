@@ -44,43 +44,30 @@
                 <!-- Add your options here -->
             </div>
         </div>
-
     </nav>
     <div class="buybody">
         <div class="container">
-
             <div class="product-container">
                 <div class="product">
                     <img src="" alt="Mobile Image" id="image" height="400" width="500">
-
-
                     <div class="button-container">
                         <button class="add-to-cart">Add to Cart</button>
                         <button class="buy-now">Buy</button>
                     </div>
                 </div>
-
-
                 <div class="product-details">
-
-
                     Specifications Section
                     <h3 id="mobileName"></h3>
                     <h4>General</h4>
                     <p>Model Number: <span id="modelNumber"></span></p>
                     <p>Designed For: <span id="designedFor"></span></p>
                     <p>Brand Color: <span id="color"></span></p>
-                    
-                </div>
-
-                    
-                
-
                 </div>
             </div>
         </div>
     </div>
     <script>
+        // Simple user object for demonstration (replace with your actual user authentication logic)
        
 
         function checkDelivery() {
@@ -88,59 +75,69 @@
             // Add code to check delivery based on pincode here
             alert('Delivery details for pincode ' + pincode);
         }
-        
+
         const phones = [
-            { id:"1",name: "iPhone11 pro", image: "image/mobile1.webp", price: "$999", rating: "4.8" ,designedfor:"apple",color:"red",modelnumber:"123"}, 
-            {id:"2", name: "iPhone 11", image: "image/mobile2.jpg", price: "$699", rating: "4.6",designedfor:"apple",color:"red",modelnumber:"456" },
-            { id:"3",name: "iPhone x", image: "image/mobile3.webp", price: "$899", rating: "4.9" ,designedfor:"apple",color:"red",modelnumber:"789"},
-            { id:"4",name: "iPhone 8", image: "image/mobiile4.webp", price: "$599", rating: "4.5",designedfor:"apple",color:"red",modelnumber:"012" },
-            { id:"5",name: "iPhone12", image: "image/mobile5.jpeg", price: "$799", rating: "4.7" ,designedfor:"apple",color:"red",modelnumber:"345"},
-            { id:"6",name: "iPhone SE", image: "image/mobile6.webp", price: "$399", rating: "4.4" ,designedfor:"apple",color:"red",modelnumber:"678"},
-            { id:"7",name: "iPhone XR", image: "image/mobile7.avif", price: "$649", rating: "4.6" ,designedfor:"apple",color:"red",modelnumber:"922"},
-            { id:"8",name: "iPhone 13 Pro", image: "image/mobile8.jpg", price: "$1099", rating: "4.9",designedfor:"apple",color:"red",modelnumber:"223" }
-        
-            
+            { id: "1", name: "iPhone11 pro", image: "image/mobile1.webp", price: "$999", rating: "4.8", designedfor: "apple", color: "red", modelnumber: "123" },
+            { id: "2", name: "iPhone 11", image: "image/mobile2.jpg", price: "$699", rating: "4.6", designedfor: "apple", color: "red", modelnumber: "456" },
+            { id: "3", name: "iPhone x", image: "image/mobile3.webp", price: "$899", rating: "4.9", designedfor: "apple", color: "red", modelnumber: "789" },
+            { id: "4", name: "iPhone 8", image: "image/mobiile4.webp", price: "$599", rating: "4.5", designedfor: "apple", color: "red", modelnumber: "012" },
+            { id: "5", name: "iPhone12", image: "image/mobile5.jpeg", price: "$799", rating: "4.7", designedfor: "apple", color: "red", modelnumber: "345" },
+            { id: "6", name: "iPhone SE", image: "image/mobile6.webp", price: "$399", rating: "4.4", designedfor: "apple", color: "red", modelnumber: "678" },
+            { id: "7", name: "iPhone XR", image: "image/mobile7.avif", price: "$649", rating: "4.6", designedfor: "apple", color: "red", modelnumber: "922" },
+            { id: "8", name: "iPhone 13 Pro", image: "image/mobile8.jpg", price: "$1099", rating: "4.9", designedfor: "apple", color: "red", modelnumber: "223" }
         ];
-       
 
-        let phoneid=window.location.search.split('=')[1]
-        let phone={}
-        for(let i=0;i<phones.length;i++){
-            if(phones[i].id===phoneid){
-                phone=phones[i]
+        let phoneid = window.location.search.split('=')[1]
+        let phone = {}
+        for (let i = 0; i < phones.length; i++) {
+            if (phones[i].id === phoneid) {
+                phone = phones[i]
             }
-            
         }
-function updateProductDetails(phone) {
-                document.getElementById('mobileName').textContent = phone.name;
-                document.getElementById('modelNumber').textContent = phone.modelnumber;
-                document.getElementById('designedFor').textContent = phone.designedfor;
-                document.getElementById('color').textContent = phone.color;
-                document.getElementById('image').src=phone.image;
-            }
-updateProductDetails(phone)
-document.addEventListener('DOMContentLoaded', function () {
-        var addToCartButton = document.querySelector('.add-to-cart');
-        var buyButton = document.querySelector('.buy-now');
 
-        addToCartButton.addEventListener('click', function () {
-            var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+        function updateProductDetails(phone) {
+            document.getElementById('mobileName').textContent = phone.name;
+            document.getElementById('modelNumber').textContent = phone.modelnumber;
+            document.getElementById('designedFor').textContent = phone.designedfor;
+            document.getElementById('color').textContent = phone.color;
+            document.getElementById('image').src = phone.image;
+        }
+        updateProductDetails(phone)
 
-            var phoneAlreadyInCart = cartItems.some(item => item.id === phone.id);
-debugger
-            if (!phoneAlreadyInCart) {
-                cartItems.push(phone);
-                localStorage.setItem('cart', JSON.stringify(cartItems));
-                alert('Product added to cart!');
-            } else {
-                alert('Product is already in the cart!');
-            }
+        
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var addToCartButton = document.querySelector('.add-to-cart');
+            var buyButton = document.querySelector('.buy-now');
+
+            addToCartButton.addEventListener('click', function () {
+                const isLoggedIn = localStorage.getItem('login') === 'true';
+
+                if (isLoggedIn)  {
+                    var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+                    var phoneAlreadyInCart = cartItems.some(item => item.id === phone.id);
+                    if (!phoneAlreadyInCart) {
+                        phone.userId=localStorage.getItem("userId")
+
+                        cartItems.push(phone);
+                        localStorage.setItem('cart', JSON.stringify(cartItems));
+                        alert('Product added to cart!');
+                    } else {
+                        alert('Product is already in the cart!');
+                    }
+                } else {
+                    alert('Please log in to add items to the cart.');
+                }
+            });
+
+            buyButton.addEventListener('click', function () {
+                if (isLoggedIn()) {
+                    alert('Product purchased!');
+                } else {
+                    alert('Please log in to complete the purchase.');
+                }
+            });
         });
-
-        buyButton.addEventListener('click', function () {
-            alert('Product purchased!');
-        });
-    });
     </script>
 </body>
 

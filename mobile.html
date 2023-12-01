@@ -68,7 +68,7 @@
         // Function to add phone to cart
     function addToCart(phoneId) {
         const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-
+debugger
         if (!cartItems.includes(phoneId)) {
             cartItems.push(phoneId);
             localStorage.setItem("cart", JSON.stringify(cartItems));
@@ -98,10 +98,10 @@
     phones.forEach(phone => {
         generatePhoneElement(phone);
     });
-</script>
+
 
 <!-- Additional code for shopping cart -->
-<script>
+
     // Function to display phones in the cart
     function displayCart() {
         const cartContainer = document.getElementById("cartContainer");
