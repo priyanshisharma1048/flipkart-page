@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML Page with CSS</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -170,6 +174,126 @@ debugger
             
             
         });
+        (function () {
+            const heart = document.getElementById('heart');
+            heart.addEventListener('click', function () {
+                if (heart.classList.value == "fa-regular fa-heart red") {
+                    localStorage.setItem("like", "False")
+                }
+                else {
+                    localStorage.setItem("like", "True")
+                }
+                heart.classList.toggle('red');
+            });
+        })();
+        const heart = document.getElementById('heart');
+        isLiked = localStorage.getItem('like')
+        if (isLiked == "True") {
+            heart.classList.toggle("red")
+        }
+
+
+        const signInIcon = document.querySelector('.icon-text i.fas.fa-user');
+        signInIcon.addEventListener('click', function () {
+            document.getElementById("myForm").style.display = "block";
+        });
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+
+        function loginForm() {
+            const email = "priyanshisharma@1048gmail.com";
+            const password = "kiyansh@24";
+            if (email === document.getElementById("e-mail").value && password === document.getElementById("password").value) {
+                localStorage.setItem("login", "true");
+                alert("Login successfully");
+                closeForm();
+                updateLoginState(); // Move this call here
+            } else {
+                localStorage.setItem("login", "false");
+                alert("Email or password incorrect");
+            }
+        }
+
+        const logoutBtn = document.getElementById('logoutBtn');
+        logoutBtn.addEventListener('click', function () {
+            localStorage.setItem('login', 'false');
+            updateLoginState();
+        });
+        const userList = [
+                {"id": 1, "email": "priyanshisharma1048@gmail.com", "fullName": "priyanshisharma", "profilepicture": "image/priyanshi.jpeg","password":"kiyanshu"},
+                {"id":2,"email":"utkarshrathore1234@gmail.com","password":"kiyanshik","fullName":"utkarsh rathore","profilepicture":"image/utkarsh.jpeg"},{"id":3,"email":"katrinakaif456@gmail.com","password":"kiyansh","fullName":"katrinakaif","profilepicture":"image/katrina.jpeg"}
+                // Add other users as needed
+            ];
+
+
+        function loginForm() {
+            const enteredEmail = document.getElementById("e-mail").value;
+            const enteredPassword = document.getElementById("password").value;
+
+            const user = userList.find(u => u.email === enteredEmail && u.password === enteredPassword);
+
+            if (user) {
+                localStorage.setItem("login", "true");
+                localStorage.setItem("userId", user.id);
+                alert("Login successfully");
+                closeForm();
+                updateLoginState();
+            } else {
+                localStorage.setItem("login", "false");
+                alert("Email or password incorrect");
+            }
+        }
+
+        // Function to update login state
+        function updateLoginState() {
+            const isLoggedIn = localStorage.getItem('login') === 'true';
+            const logoutSection = document.getElementById('logoutSection');
+            const signIn = document.getElementById('signIn');
+            const profilsection = document.getElementById('profilesection')
+
+            if (isLoggedIn) {
+                logoutSection.style.display = 'block';
+                signIn.style.display = 'none';
+                profilesection.style.display='block'
+
+
+
+            } else {
+                logoutSection.style.display = 'none';
+                signIn.style.display = 'block'
+                profilesection.style.display='none'
+            }
+
+        }
+function likeState(){
+    
+}
+        updateLoginState()
+        imageList.push({
+        "image": "image/cart.webp",
+        "text": "Cart",
+        "isDropdown": "false",
+        "option_url": "cart.html" // Specify the URL for the Cart page
+    });
+
+    
+    const cartIcon = document.getElementById('cartIcon');
+    cartIcon.addEventListener('click', function () {
+        // Retrieve the option_url for the Cart item
+        const cartUrl = imageList.find(item => item.text === 'Cart').option_url;
+
+        // Redirect to the Cart page
+        window.location.href = cartUrl;
+        
+    });
+    const profileBtn = document.getElementById('profileBtn');
+    profileBtn.addEventListener('click', function () {
+        // Redirect to the Profile page (replace 'profile.html' with the actual URL)
+        window.location.href = 'profile.html';
+    });
+
     </script>
 </body>
 </html>

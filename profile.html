@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    </head>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -36,12 +42,67 @@
     </style>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="left">
+            <a href="#" class="logo">Flipkart</a>
+            <div class="explore-plus">Explore <span class="plus">Plus</span></div>
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="Search for product, brand, and more">
+            <div class="dropdown">
+                <!-- Add your search options here -->
+            </div>
+        </div>
+        <div class="icon">
+            <span class="icon-text"><i class="fa-regular fa-heart" id="heart"></i> become a Seller</span>
+            <div class="dropdown">
+                <!-- Add your options here -->
+            </div>
+        </div>
+        <div class="icon" id="cartIcon">
+            <span class="icon-text"><i class="fas fa-shopping-cart"></i> Cart</span>
+            <div class="dropdown">
+                <!-- Add your options here -->
+            </div>
+        </div>
+        <div class="icon" id="signIn">
+            <span class="icon-text"><i class="fas fa-user"></i> Sign In</span>
+            <div class="dropdown">
+                <!-- Add your sign in options here -->
+
+
+                <div class="form-popup" id="myForm">
+                    <form action="/action_page.php" class="form-container">
+                        <h1>Login</h1>
+                        <label for="email"><b>Email</b></label>
+                        <input type="text" placeholder="Enter Email" name="email" id="e-mail" required>
+                        <label for="psw"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="psw" id="password" required>
+                        <button type="button" class="btn" onclick="loginForm()">Login</button>
+                        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <div class="icon" id="logoutSection" style="display: none;">
+            <span class="icon-text" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</span>
+        </div>
+
+        <div class="profileicon" id="profilesection" style="display: none;">
+            <span class="profile-text" id="profileBtn"><i class="fa  fa-user"></i> profile</span>
+        </div>
+
+    </nav>
+
     <div id="profile-container">
         <img id="profile-picture" src="" alt="Profile Picture">
         <div id="username"></div>
         <div id="email"></div>
 
         <script>
+            const imageList = [];
+
             // Retrieve user ID from localStorage
             const userId = localStorage.getItem('userId');
             
@@ -51,6 +112,13 @@
                 {"id":2,"email":"utkarshrathore1234@gmail.com","password":"kiyanshik","fullName":"utkarsh rathore","profilepicture":"image/utkarsh.jpeg"},{"id":3,"email":"katrinakaif456@gmail.com","password":"kiyansh","fullName":"katrinakaif","profilepicture":"image/katrina.jpeg"}
                 // Add other users as needed
             ];
+            imageList.push({
+    "image": "image/cart.webp",
+    "text": "Cart",
+    "isDropdown": "false",
+    "option_url": "cart.html" // Specify the URL for the Cart page
+});
+
             // Find the user based on the stored ID
             const user = userList.find(u => u.id == userId);
 
@@ -64,6 +132,131 @@
                 alert('User not found. Please log in again.');
                 window.location.href = 'login.html';
             }
+            (function () {
+            const heart = document.getElementById('heart');
+            heart.addEventListener('click', function () {
+                if (heart.classList.value == "fa-regular fa-heart red") {
+                    localStorage.setItem("like", "False")
+                }
+                else {
+                    localStorage.setItem("like", "True")
+                }
+                heart.classList.toggle('red');
+            });
+        })();
+        const heart = document.getElementById('heart');
+        isLiked = localStorage.getItem('like')
+        if (isLiked == "True") {
+            heart.classList.toggle("red")
+        }
+
+
+        const signInIcon = document.querySelector('.icon-text i.fas.fa-user');
+        signInIcon.addEventListener('click', function () {
+            document.getElementById("myForm").style.display = "block";
+        });
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+
+        function loginForm() {
+            const email = "priyanshisharma@1048gmail.com";
+            const password = "kiyansh@24";
+            if (email === document.getElementById("e-mail").value && password === document.getElementById("password").value) {
+                localStorage.setItem("login", "true");
+                alert("Login successfully");
+                closeForm();
+                updateLoginState(); // Move this call here
+            } else {
+                localStorage.setItem("login", "false");
+                alert("Email or password incorrect");
+            }
+        }
+
+        const logoutBtn = document.getElementById('logoutBtn');
+        logoutBtn.addEventListener('click', function () {
+            localStorage.setItem('login', 'false');
+            updateLoginState();
+            window.location.href = 'index.html';
+});
+    
+   
+
+        function loginForm() {
+            const enteredEmail = document.getElementById("e-mail").value;
+            const enteredPassword = document.getElementById("password").value;
+
+            const user = userList.find(u => u.email === enteredEmail && u.password === enteredPassword);
+
+            if (user) {
+                localStorage.setItem("login", "true");
+                localStorage.setItem("userId", user.id);
+                alert("Login successfully");
+                closeForm();
+                updateLoginState();
+            } else {
+                localStorage.setItem("login", "false");
+                alert("Email or password incorrect");
+            }
+        }
+
+        // Function to update login state
+        function updateLoginState() {
+            const isLoggedIn = localStorage.getItem('login') === 'true';
+            const logoutSection = document.getElementById('logoutSection');
+            const signIn = document.getElementById('signIn');
+            const profilsection = document.getElementById('profilesection')
+
+            if (isLoggedIn) {
+                logoutSection.style.display = 'block';
+                signIn.style.display = 'none';
+                profilesection.style.display='block'
+
+
+
+            } else {
+                logoutSection.style.display = 'none';
+                signIn.style.display = 'block'
+                profilesection.style.display='none'
+            }
+
+        }
+function likeState(){
+    
+}
+        updateLoginState()
+        imageList.push({
+        "image": "image/cart.webp",
+        "text": "Cart",
+        "isDropdown": "false",
+        "option_url": "cart.html" // Specify the URL for the Cart page
+    });
+
+    
+    const cartIcon = document.getElementById('cartIcon');
+    cartIcon.addEventListener('click', function () {
+        // Retrieve the option_url for the Cart item
+        const cartUrl = imageList.find(item => item.text === 'Cart').option_url;
+
+        // Redirect to the Cart page
+        window.location.href = cartUrl;
+        
+    });
+    const profileBtn = document.getElementById('profileBtn');
+    profileBtn.addEventListener('click', function () {
+        // Redirect to the Profile page (replace 'profile.html' with the actual URL)
+        window.location.href = 'profile.html';
+        const cartIcon = document.getElementById('cartIcon');
+cartIcon.addEventListener('click', function () {
+    // Retrieve the option_url for the Cart item
+    const cartUrl = imageList.find(item => item.text === 'Cart').option_url;
+
+    // Redirect to the Cart page
+    window.location.href = cartUrl;
+});
+    });
+    
         </script>
     </div>
 </body>

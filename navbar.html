@@ -1,0 +1,79 @@
+<!-- navbar.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <div>
+        <nav class="navbar">
+            <!-- Your existing navbar code goes here -->
+            <div>
+                <nav class="navbar">
+                    <div class="left">
+                        <a href="#" class="logo">Flipkart</a>
+                        <div class="explore-plus">Explore <span class="plus">Plus</span></div>
+                    </div>
+                    <div class="search-box">
+                        <input type="text" placeholder="Search for product, brand, and more">
+                        <div class="dropdown">
+                            <!-- Add your search options here -->
+                        </div>
+                    </div>
+                    <div class="icon">
+                        <span class="icon-text"><i class="fa-regular fa-heart" id="heart"></i> become a Seller</span>
+                        <div class="dropdown">
+                            <!-- Add your options here -->
+                        </div>
+                    </div>
+                    <div class="icon" id="cartIcon">
+                        <span class="icon-text"><i class="fas fa-shopping-cart"></i> Cart</span>
+                        <div class="dropdown">
+                            <!-- Add your options here -->
+                        </div>
+                    </div>
+                    <div class="icon" id="signIn">
+                        <span class="icon-text"><i class="fas fa-user"></i> Sign In</span>
+                        <div class="dropdown">
+                            <!-- Add your sign in options here -->
+        
+        
+                            <div class="form-popup" id="myForm">
+                                <form action="/action_page.php" class="form-container">
+                                    <h1>Login</h1>
+                                    <label for="email"><b>Email</b></label>
+                                    <input type="text" placeholder="Enter Email" name="email" id="e-mail" required>
+                                    <label for="psw"><b>Password</b></label>
+                                    <input type="password" placeholder="Enter Password" name="psw" id="password" required>
+                                    <button type="button" class="btn" onclick="loginForm()">Login</button>
+                                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                                </form>
+                            </div>
+                        </div>
+        
+                    </div>
+                    <div class="icon" id="logoutSection" style="display: none;">
+                        <span class="icon-text" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</span>
+                    </div>
+        
+                    <div class="profileicon" id="profilesection" style="display: none;">
+                        <span class="profile-text" id="profileBtn"><i class="fa  fa-user"></i> profile</span>
+                    </div>
+        
+                </nav>
+        
+            </div>
+            
+        </nav>
+    </div>
+</body>
+</html>
